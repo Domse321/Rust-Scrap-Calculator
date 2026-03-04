@@ -1,0 +1,5 @@
+{
+  "name": "Rust Scrap Calculator",
+  "description": "Calculate scrap yield from recycling Rust components at normal and safezone recyclers.",
+  "requestFramePermissions": []
+}
