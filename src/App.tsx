@@ -76,7 +76,7 @@ export default function App() {
       const keyToUse = apiKey || envKey;
 
       if (!keyToUse) {
-        toast.error('Bitte hinterlege einen Gemini API Key in den Einstellungen.');
+        toast.error('Bitte hinterlege einen API Key in den Einstellungen.');
         setIsSettingsOpen(true);
         setIsAnalyzing(false);
         if (fileInputRef.current) fileInputRef.current.value = '';
@@ -511,7 +511,7 @@ export default function App() {
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-zinc-400 mb-2">Gemini API Key</label>
+                <label className="block text-sm font-medium text-zinc-400 mb-2">API Key für Screenshot-Analyse</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Key className="h-4 w-4 text-zinc-500" />
@@ -520,15 +520,12 @@ export default function App() {
                     type="password"
                     value={apiKey}
                     onChange={(e) => handleSaveApiKey(e.target.value)}
-                    placeholder="AIzaSy..."
+                    placeholder="API Key einfügen"
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/50 transition-all"
                   />
                 </div>
                 <p className="mt-3 text-xs text-zinc-500 leading-relaxed">
-                  Dein API Key wird nur lokal in deinem Browser (LocalStorage) gespeichert und niemals an unsere Server gesendet. 
-                  <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:underline ml-1">
-                    Hier Key erstellen.
-                  </a>
+                  Dein API Key wird nur lokal in deinem Browser (LocalStorage) gespeichert und niemals an unsere Server gesendet.
                 </p>
               </div>
             </div>

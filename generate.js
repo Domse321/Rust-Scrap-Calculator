@@ -25,12 +25,12 @@ function formatYield(amount, multiplier) {
   const guaranteed = Math.floor(total);
   const chance = total - guaranteed;
   if (chance > 0.01) {
-    return \`{ itemId: '\${arguments[2]}', amount: \${guaranteed}, chance: \${chance.toFixed(2)} }\`;
+    return `{ itemId: '${arguments[2]}', amount: ${guaranteed}, chance: ${chance.toFixed(2)} }`;
   }
-  return \`{ itemId: '\${arguments[2]}', amount: \${guaranteed} }\`;
+  return `{ itemId: '${arguments[2]}', amount: ${guaranteed} }`;
 }
 
-let output = \`export type Yield = {
+let output = `export type Yield = {
   itemId: string;
   amount: number;
   chance?: number;
@@ -56,7 +56,7 @@ export const ITEMS: Item[] = [
   { id: 'cloth', name: 'Cloth', image: 'https://raw.githubusercontent.com/LehaSex/rust-game-icons/main/large/resources/cloth.png', batchSize: 1, isRaw: true },
   
   // Components
-\`;
+`;
 
 for (const item of items) {
   const normal = [];
@@ -79,17 +79,17 @@ for (const item of items) {
     safezone.push(formatYield(item.cloth, 0.8, 'cloth'));
   }
   
-  output += \`  {
-    id: '\${item.id}', name: '\${item.name}', image: '\${item.image}', batchSize: \${item.batchSize},
+  output += `  {
+    id: '${item.id}', name: '${item.name}', image: '${item.image}', batchSize: ${item.batchSize},
     yields: {
-      normal: [\${normal.join(', ')}],
-      safezone: [\${safezone.join(', ')}]
+      normal: [${normal.join(', ')}],
+      safezone: [${safezone.join(', ')}]
     }
   },
-\`;
+`;
 }
 
-output += \`];
+output += `];
 
 export type CalculatedYield = {
   [itemId: string]: number;
@@ -112,6 +112,6 @@ export function calculateYields(itemId: string, amount: number, type: 'normal' |
     }
   }
 }
-\`;
+`;
 
 fs.writeFileSync('src/data/items.ts', output);

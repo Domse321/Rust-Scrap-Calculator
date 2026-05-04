@@ -1,20 +1,71 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Rust Scrap Calculator
 
-# Run and deploy your AI Studio app
+Ein schlanker Rechner für Rust-Recycling: Inventar eintragen oder Screenshot analysieren und direkt sehen, wie viel Scrap, Metal Fragments, HQM und Cloth bei normalen bzw. Safezone-Recyclern herauskommt.
 
-This contains everything you need to run your app locally.
+## Funktionen
 
-View your app in AI Studio: https://ai.studio/apps/1dd37422-4201-4312-937a-044f272e8cd4
+- Rust-Komponenten manuell erfassen
+- erwartete Ausbeute für normale Recycler und Safezone-Recycler vergleichen
+- Recycling-Zeit grob abschätzen
+- optionale Screenshot-Analyse über einen eigenen API-Key
+- API-Key wird bei manueller Eingabe nur lokal im Browser gespeichert
 
-## Run Locally
+## Lokale Entwicklung
 
-**Prerequisites:**  Node.js
+**Voraussetzungen:** Node.js 18+
 
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Die App läuft standardmäßig unter:
+
+```text
+http://localhost:3000
+```
+
+## API-Key / Secrets
+
+Für die Screenshot-Analyse wird ein kompatibler API-Key benötigt.
+
+1. `.env.example` nach `.env.local` kopieren.
+2. In `.env.local` den Key eintragen.
+3. `.env.local` bleibt lokal und wird nicht committed.
+
+```env
+GEMINI_API_KEY="..."
+VITE_GEMINI_API_KEY="..."
+```
+
+Hinweis: Alles mit `VITE_` wird bei einem rein statischen Vite-Build in den Browser-Bundle eingebettet. Für öffentliche Deployments ist deshalb die sicherere Variante, den Key nicht mitzubuilden und Nutzer den Key lokal im Einstellungsdialog eintragen zu lassen — oder später einen kleinen Backend-Proxy zu verwenden.
+
+## Scripts
+
+```bash
+npm run dev      # Entwicklungsserver
+npm run build    # Produktionsbuild
+npm run preview  # lokalen Build ansehen
+npm run lint     # TypeScript-Check
+npm run clean    # dist entfernen
+```
+
+## Projektstruktur
+
+```text
+src/
+  App.tsx          # UI und Screenshot-Analyse
+  data/items.ts    # Rust-Items und Recycling-Werte
+  main.tsx         # React-Einstiegspunkt
+```
+
+## Deployment
+
+Für statisches Hosting reicht:
+
+```bash
+npm run build
+```
+
+Der fertige Build liegt danach in `dist/`.
