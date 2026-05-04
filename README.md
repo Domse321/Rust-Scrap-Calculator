@@ -37,7 +37,9 @@ http://localhost:3000
 
 ## API-Key / Secrets
 
-Für die Screenshot-Analyse wird ein kompatibler API-Key benötigt.
+Für die Screenshot-Analyse wird ein kompatibler API-Key benötigt. Nutzer können ihren eigenen Key direkt auf der Website im Einstellungsdialog eintragen. Der Key wird dabei nur lokal im Browser gespeichert und nicht in dieses Repository übernommen.
+
+Für lokale Entwicklung kann der Key alternativ über eine private `.env.local` bereitgestellt werden:
 
 1. `.env.example` nach `.env.local` kopieren.
 2. In `.env.local` den Key eintragen.
