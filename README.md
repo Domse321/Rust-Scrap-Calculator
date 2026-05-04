@@ -10,6 +10,15 @@ Ein schlanker Rechner für Rust-Recycling: Inventar eintragen oder Screenshot an
 - optionale Screenshot-Analyse über einen eigenen API-Key
 - API-Key wird bei manueller Eingabe nur lokal im Browser gespeichert
 
+
+## Live-Version
+
+Eine aktuelle Version des Repos läuft unter:
+
+```text
+https://rustscrap.netlify.app
+```
+
 ## Lokale Entwicklung
 
 **Voraussetzungen:** Node.js 18+
