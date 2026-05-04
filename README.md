@@ -16,7 +16,7 @@ Ein schlanker Rechner für Rust-Recycling: Inventar eintragen oder Screenshot an
 Eine aktuelle Version des Repos läuft unter:
 
 ```text
-https://rustscrap.netlify.app
+https://scrap.domse.dev
 ```
 
 ## Lokale Entwicklung
